@@ -17,11 +17,13 @@ The third site in the Let's Talk family, built 2026-11-24 on the same method as 
 Static page, no form (no spam risk, no webhook): every action is "Get Pre-qualified" (LendingPad, same link as financemyadu.io), "Book a Call" (Pat's booking page) or the phone number.
 
 ## Live hosting
-- **Hostinger Node.js web app** (moving from GitHub Pages on 2026-11-24, at Pat's request), deployed from GitHub repo PatCollins-14/letstalkrenovation, branch main, entry file `server.js`, set up like letstalkadu.com.
+- **Hostinger Node.js web app** (moved from GitHub Pages on 2026-11-24, at Pat's request): Business plan, site letstalkrenovation.com, framework Express, Node 22.x, npm, entry file `server.js`. Source of truth is the GitHub repo PatCollins-14/letstalkrenovation (branch main).
+- **How it was deployed:** "Upload your files" with a zip of the repo, because hPanel was open in *admin access* mode, where Hostinger disables GitHub deployment ("temporarily disabled while managing clients"). **To update the site:** commit and push, run `git archive --format=zip -o letstalkrenovation-site.zip HEAD`, then upload that zip in hPanel → Websites → letstalkrenovation.com → Deployments. **To get auto-deploy on every push** (like letstalkadu.com): log in to hPanel directly as the account owner (not admin access) and connect the GitHub repo in the web app's deployment settings.
+- **DNS** (set by Hostinger when the web app was created): ALIAS @ → letstalkrenovation.com.cdn.hstgr.net, CNAME www → www.letstalkrenovation.com.cdn.hstgr.net (plus Hostinger's A ftp record). SSL is Hostinger's.
 - On every start, `server.js` runs `build.mjs` (all copy and compliance checks) with DOMAIN=letstalkrenovation.com and serves `dist/`. If a build fails, the last good `dist/` keeps being served and `/api/health` shows `ok: false` with the error. Optional hPanel env vars: DOMAIN, ANALYTICS_ID, APPLY_URL, BOOK_URL.
 - www only: the server 301s the bare domain to https://www.letstalkrenovation.com (path and ad tags kept); the page script does the same as a backup.
 - Health check: https://www.letstalkrenovation.com/api/health
-- Earlier hosting (2026-11-24, a few hours): GitHub Pages with DNS A @ 185.199.108/109/110.153 and CNAME www -> patcollins-14.github.io; the Pages workflow is removed from the repo.
+- Earlier hosting (2026-11-24, a few hours): GitHub Pages with DNS A @ 185.199.108/109/110.153 and CNAME www -> patcollins-14.github.io. The Pages workflow is removed from the repo and the Pages site is deleted.
 
 ## Files
 - `index.src.html`: the page source (edit this one)
