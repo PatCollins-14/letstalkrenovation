@@ -1,0 +1,17 @@
+{
+  "name": "letstalkrenovation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "www.letstalkrenovation.com: static landing page built by build.mjs and served by a small Node server on Hostinger",
+  "main": "server.js",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "4.21.2"
+  }
+}

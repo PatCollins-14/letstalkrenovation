@@ -16,11 +16,12 @@ The third site in the Let's Talk family, built 2026-11-24 on the same method as 
 
 Static page, no form (no spam risk, no webhook): every action is "Get Pre-qualified" (LendingPad, same link as financemyadu.io), "Book a Call" (Pat's booking page) or the phone number.
 
-## Live hosting (since 2026-11-24)
-- **Live at https://www.letstalkrenovation.com** (GitHub Pages, repo PatCollins-14/letstalkrenovation, branch main). Every push to main runs `.github/workflows/pages.yml`: `node build.mjs` (all checks) then deploys `dist/`. Repo variable `DOMAIN=letstalkrenovation.com` makes the build indexable, sets www canonical and writes the CNAME.
-- Pages custom domain: www.letstalkrenovation.com. GitHub 301s the bare domain to www; the page script does the same as a backup.
-- DNS at Hostinger (dns-parking.com nameservers): A @ 185.199.108.153, 185.199.109.153, 185.199.110.153 (the fourth GitHub address, 185.199.111.153, was not added; optional redundancy) and CNAME www -> patcollins-14.github.io. Before: A @ 2.57.91.91 (Hostinger parking) and CNAME www -> letstalkrenovation.com; put those back to take the site down.
-- Analytics: none yet (set repo variable ANALYTICS_ID to a GTM container ID).
+## Live hosting
+- **Hostinger Node.js web app** (moving from GitHub Pages on 2026-11-24, at Pat's request), deployed from GitHub repo PatCollins-14/letstalkrenovation, branch main, entry file , set up like letstalkadu.com.
+- On every start,  runs  (all copy and compliance checks) with DOMAIN=letstalkrenovation.com and serves . If a build fails, the last good  keeps being served and  shows  with the error. Optional hPanel env vars: DOMAIN, ANALYTICS_ID, APPLY_URL, BOOK_URL.
+- www only: the server 301s the bare domain to https://www.letstalkrenovation.com (path and ad tags kept); the page script does the same as a backup.
+- Health check: https://www.letstalkrenovation.com/api/health
+- Earlier hosting (2026-11-24, a few hours): GitHub Pages with DNS A @ 185.199.108/109/110.153 and CNAME www -> patcollins-14.github.io; the Pages workflow is removed from the repo.
 
 ## Files
 - `index.src.html`: the page source (edit this one)
@@ -30,7 +31,7 @@ Static page, no form (no spam risk, no webhook): every action is "Get Pre-qualif
 - `img/ba/`: the slider pairs (Higgsfield gpt_image_2_6, photo style, 1024 x 688). Each "after" was generated from its "before" as a reference image so the angle lines up.
 - `img/gallery/`: 8 photo-style project ideas for the sliding gallery. `pat-collins.webp` is copied from adu-geo-build/landing/img.
 - `brand/`: `logo-renovations.png` (560 x 375 master, made from the Let's Talk ADU logo: same bubble, "Let's Talk" and rules, "Renovations" set in bold Times), the ADU source logo, and spare images.
-- `.github/workflows/pages.yml`: GitHub Pages deploy (build, then publish dist/). Not pushed anywhere yet.
+- `server.js` + `package.json`: the Hostinger web app (Express). `npm start` builds and serves; `npm run build` only builds.
 
 Preview artifact (private): https://claude.ai/artifact/M7Dkfy7tg79BqMsiCNREfu
 
