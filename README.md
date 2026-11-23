@@ -16,6 +16,12 @@ The third site in the Let's Talk family, built 2026-11-24 on the same method as 
 
 Static page, no form (no spam risk, no webhook): every action is "Get Pre-qualified" (LendingPad, same link as financemyadu.io), "Book a Call" (Pat's booking page) or the phone number.
 
+## Live hosting (since 2026-11-24)
+- **Live at https://www.letstalkrenovation.com** (GitHub Pages, repo PatCollins-14/letstalkrenovation, branch main). Every push to main runs `.github/workflows/pages.yml`: `node build.mjs` (all checks) then deploys `dist/`. Repo variable `DOMAIN=letstalkrenovation.com` makes the build indexable, sets www canonical and writes the CNAME.
+- Pages custom domain: www.letstalkrenovation.com. GitHub 301s the bare domain to www; the page script does the same as a backup.
+- DNS at Hostinger (dns-parking.com nameservers): A @ 185.199.108.153, 185.199.109.153, 185.199.110.153 (the fourth GitHub address, 185.199.111.153, was not added; optional redundancy) and CNAME www -> patcollins-14.github.io. Before: A @ 2.57.91.91 (Hostinger parking) and CNAME www -> letstalkrenovation.com; put those back to take the site down.
+- Analytics: none yet (set repo variable ANALYTICS_ID to a GTM container ID).
+
 ## Files
 - `index.src.html`: the page source (edit this one)
 - `build.mjs`: `node build.mjs` writes `index.html` and `dist/` (the deployable site). It fills the links, adds "(ARV)" after every "after renovation", capitalizes Renovation / Remodel, Title-Cases every h2/h3, joins the last two words of every text block (no orphans), and fails on: banned phrases (`config/banned-phrases.json`, copied from adu-geo-build), dollar figures or percentages outside `<article data-scenario>`, the program source company's names, Pat's name outside the footer and advisor card, a CSLB number without "Mars Construction" before it, an application link not reading exactly "Get Pre-qualified", "free" anywhere except Let's Talk ADU's free online lot check, placeholders, and any form or input.
