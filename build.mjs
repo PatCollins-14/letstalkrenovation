@@ -105,7 +105,7 @@ const SERVICES = [
 const ld = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'Organization', '@id': SITE_URL + '/#org', name: "Let's Talk Renovation", url: SITE_URL + '/', logo: SITE_URL + '/img/logo.png', telephone: '+1-949-787-2662', areaServed,
+    { '@type': 'Organization', '@id': SITE_URL + '/#org', name: "Let's Talk Renovation", url: SITE_URL + '/', logo: SITE_URL + '/img/logo.png', telephone: '+1-626-658-3929', areaServed,
       description: 'Southern California home Renovations planned, financed and built by one team: construction by Mars Construction (CSLB #1138550) and the After Renovation Value (ARV) HELOC through E Mortgage Capital Inc. (NMLS #1416824).',
       knowsAbout: ['Kitchen Remodeling', 'Bathroom Remodeling', 'Room additions', 'Whole-home Renovation', 'Renovation financing', 'Home equity lines of credit', 'After Renovation Value (ARV) HELOC'],
       hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Home Renovation services and financing', itemListElement: [
@@ -116,10 +116,10 @@ const ld = {
         { '@type': 'Offer', url: 'https://www.letstalkadu.com/', itemOffered: { '@type': 'Service', name: 'Accessory Dwelling Unit (ADU)', serviceType: 'ADU design, financing and construction',
           description: "Detached ADUs, garage conversions, attached ADUs and junior ADUs through the sister site Let's Talk ADU, built by Mars Construction.", provider: { '@id': 'https://marsx.construction/#mars' }, areaServed } }
       ] } },
-    { '@type': 'GeneralContractor', '@id': 'https://marsx.construction/#mars', name: 'Mars Construction Industries Corp', alternateName: 'MARS Construction', url: 'https://marsx.construction/', telephone: '+1-949-787-2662', areaServed,
+    { '@type': 'GeneralContractor', '@id': 'https://marsx.construction/#mars', name: 'Mars Construction Industries Corp', alternateName: 'MARS Construction', url: 'https://marsx.construction/', telephone: '+1-626-658-3929', areaServed,
       hasCredential: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'California contractor license #1138550 (Classes A, B, C-36, C-20)',
         recognizedBy: { '@type': 'Organization', name: 'Contractors State License Board', url: 'https://www.cslb.ca.gov/' } } },
-    { '@type': 'FinancialService', '@id': SITE_URL + '/#lender', name: 'E Mortgage Capital Inc.', identifier: { '@type': 'PropertyValue', propertyID: 'NMLS', value: '1416824' }, telephone: '+1-949-787-2662',
+    { '@type': 'FinancialService', '@id': SITE_URL + '/#lender', name: 'E Mortgage Capital Inc.', identifier: { '@type': 'PropertyValue', propertyID: 'NMLS', value: '1416824' }, telephone: '+1-626-658-3929',
       address: { '@type': 'PostalAddress', streetAddress: '3750 S. Susan Street', addressLocality: 'Santa Ana', addressRegion: 'CA', postalCode: '92704', addressCountry: 'US' },
       employee: { '@type': 'Person', name: 'Pat Collins', jobTitle: 'Mortgage Professional', identifier: [{ '@type': 'PropertyValue', propertyID: 'NMLS', value: '1628553' }, { '@type': 'PropertyValue', propertyID: 'California DRE', value: '02143449' }] } },
     { '@type': 'WebSite', '@id': SITE_URL + '/#website', url: SITE_URL + '/', name: "Let's Talk Renovation", publisher: { '@id': SITE_URL + '/#org' }, inLanguage: 'en-US' },
