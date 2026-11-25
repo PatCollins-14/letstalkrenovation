@@ -25,8 +25,8 @@ const onText = (h, fn) => h.split(SPLIT).map((part, i) => (i % 2 ? part : fn(par
 // ---- 1. links ----
 // E Mortgage Capital LendingPad application (same link as financemyadu.io and the LTHM check funnel)
 const APPLY_URL = process.env.APPLY_URL || 'https://prod.lendingpad.com/emci/38d77370-2060-489a-a024-4bdc8db0a865/pos#/';
-// Pat's booking page (same as the Book links and the QR on the Let's Talk ADU blueprint PDF)
-const BOOK_URL = process.env.BOOK_URL || 'https://link.theradcrm.com/widget/bookings/appointment-booking-with-pat-collins';
+// Pat's booking page in the new GHL account (same as the Book links and the QR on the Let's Talk ADU blueprint PDF)
+const BOOK_URL = process.env.BOOK_URL || 'https://api.leadconnectorhq.com/widget/bookings/lthm-appointment-with-pat-collins';
 const ANALYTICS_ID = process.env.ANALYTICS_ID || '';
 // Domain: until DOMAIN is set the page stays noindex and the canonical/OG tags point at the planned address
 const DOMAIN = (process.env.DOMAIN || '').replace(/^https?:\/\//, '').replace(/\/+$/, '').replace(/^www\./i, '').toLowerCase();
